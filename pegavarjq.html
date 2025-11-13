@@ -1,0 +1,35 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  var usuario_ok;
+
+  $('#cadastro').on('keyup', 'input', function() {
+    var c_nome = $('#c_nome').val();
+    // Verificar Nome
+
+    if (c_nome.length > 2) {
+      usuario_ok = true;
+    } else {
+      usuario_ok = false;
+    }
+    //alert(usuario_ok);
+
+  });
+
+  $('#cadastro').on('change', '#c_concordo', function() {
+    var c_chk = this.checked ? true : false;
+
+    if (c_chk == true && usuario_ok == true) {
+      $('#deu_certo').html('OK');
+    }
+  });
+
+});
+</script>
+
+<form id="cadastro">
+  <input type="text" id="c_nome" />
+  <input type="checkbox" id="c_concordo">
+</form>
+<div id="deu_certo">Ainda não</div>
